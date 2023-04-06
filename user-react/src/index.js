@@ -5,6 +5,7 @@ import {BrowserRouter} from "react-router-dom";
 import "./globalStyle/global.style.scss";
 import UserContextProvider from "./context/userContext";
 import IsLoadingContextProvider from "./context/isLoading";
+import SlideImage from './components/post-Detalis/SlideImage';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

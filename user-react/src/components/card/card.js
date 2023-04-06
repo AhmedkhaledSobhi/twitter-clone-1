@@ -4,10 +4,19 @@ import {Link} from "react-router-dom";
 import {chart, comment, like, newFollow, replay, share, threeDots} from "../../constants/icons";
 import TwDropdown from "../twDropdown/TwDropdown";
 import "../main-sidebar/twitter.main.css"
+import { useState } from "react";
+import SlideImage from './../post-Detalis/SlideImage';
 
 const Card = (props) => {
+    const [showImage, setShowImage] = useState(false);
+
+    function displayImg() {
+        setShowImage(!showImage);
+        document.getElementsByTagName("*")[0].style.overflow = "hidden";
+    }
     return (
         <>
+        {showImage&&<SlideImage updateState={setShowImage}/>}
             <div className={"row p-3 border-top gx-0"}>
                 <div className={"col-12 me-3"}>
                     <div className={'d-flex '}>
@@ -45,8 +54,8 @@ const Card = (props) => {
                     <div className={"d-flex flex-column"}>
                         <p className={"fw-light"} style={{fontSize: 15}}> {props.text}.</p>
                         <div className="tweet_icons text-muted">
-                            <div className={"icon"}>
-                                <i className={"icon icon-1"}>{comment}</i>
+                            <div className={"icon"} onClick={displayImg}>
+                                <i className={"icon icon-1"} >{comment}</i>
                                 <span className={"ms-1"}>300</span>
                             </div>
 
